@@ -2731,13 +2731,17 @@ onInputChange(name: any, pos: number, question: string, value: any) {
         <div className='col-sm-12'>
             <form onSubmit={this.onSubmit}>
               <ul className='collection with-header'>
-                <li className='collection-header'><h4 className='cyan-text text-darken-3'>Preguntas</h4></li>
+                <li className='collection-header'><h4 className='light-blue-text'>Preguntas</h4></li>
                 {params.map(pregunta => (
                   <li className='collection-item' key={pregunta.id}>
-                    <div>
+                    <div className='row'>
                       <br/>
-                      <span className='title cyan-text text-darken-4'>{pregunta.posicion})  {pregunta.pregunta}</span>
-                      <RadioInput2 object={editableAlter} error={error} name={pregunta.tipos} pos={pregunta.posicion} question={pregunta.pregunta} options={pregunta.alternativas} onChange={this.onInputChange} />
+                      <div className='col s12 m8 l9'>
+                        <strong className='title grey-text text-darken-3'>{pregunta.posicion})  {pregunta.pregunta}</strong>
+                      </div>
+                      <div className='col s12 m4 l3'>
+                        <RadioInput2 object={editableAlter} error={error} name={pregunta.tipos} pos={pregunta.posicion} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
+                      </div>
                       <br/>
                     </div>
                   </li>

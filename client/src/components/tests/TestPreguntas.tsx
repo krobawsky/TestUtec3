@@ -514,19 +514,20 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
       }
     }
   }
-   test  = () => {
+
+  test  = () => {
     this.setState ({
       progress: 'progress scale-transition scale-in'
     });
   }
 
   render() {
-     // const { params } = this.props;
+    // const { params } = this.props;
     let params = this.props.params;
     const { editableAlter, error } = this.state;
     params.sort((a, b) => Number(a.posicion) - Number(b.posicion));
-  let resId = this.props.resultadoId;
-  if (!resId ) {
+    let resId = this.props.resultadoId;
+    if (!resId ) {
       return <h2>No puedes resolver este test. Inicia sesión</h2>;
     }
     return (
@@ -534,13 +535,17 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         <div className='col-sm-12'>
             <form onSubmit={this.onSubmit}>
               <ul className='collection with-header'>
-                <li className='collection-header'><h4 className='cyan-text text-darken-3'>Preguntas</h4></li>
+                <li className='collection-header'><h4 className='light-blue-text'>Preguntas</h4></li>
                 {params.map(pregunta => (
                   <li className='collection-item' key={pregunta.id}>
-                    <div>
+                    <div className='row'>
                       <br/>
-                      <span className='title cyan-text text-darken-4'>{pregunta.posicion})  {pregunta.pregunta}</span>
-                     <RadioInput object={editableAlter} error={error} name={pregunta.tipo.name} question={pregunta.pregunta} options={pregunta.alternativas} onChange={this.onInputChange} />
+                      <div className='col s12 m8 l9'>
+                        <strong className='title grey-text text-darken-3'>{pregunta.posicion})  {pregunta.pregunta}</strong>
+                      </div>
+                      <div className='col s12 m4 l3'>
+                        <RadioInput object={editableAlter} error={error} name={pregunta.tipos} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
+                      </div>
                       <br/>
                     </div>
                   </li>

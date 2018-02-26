@@ -30,13 +30,14 @@ export default ({alumno}: { alumno: IAlumno }) => (
               <tr key={resultado.id}>
                <td> <h5>{resultado.test} </h5></td><td> { resultado.descripcion } </td>
                <td>
-            { resultado.test === 'Test del Estres' ? (
-   <Link to={{ pathname : `/student/tests/estres`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
-            ) : ( resultado.test === 'Test de Millon' ? (
-  <Link to={{ pathname : `/student/tests/millon`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
-                ) : (
-<a href={`/student/tests/${resultado.id}/baron`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>
-                ))}
+                {
+                  resultado.test === 'Test del Estres' ? (
+                    <Link to={{ pathname : `/student/tests/estres`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
+                  ) : ( resultado.test === 'Test de Millon' ? (
+                    <Link to={{ pathname : `/student/tests/millon`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
+                  ) : (
+                    <a href={`/student/tests/${resultado.id}/baron`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>
+                  ))}
                 </td>
               </tr>
               ) : (

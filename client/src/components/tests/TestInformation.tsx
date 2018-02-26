@@ -8,16 +8,16 @@ import { ITest } from '../../types';
 
 export default ({test}: { test: ITest }) => (
   <section>
-    <h3 className='center-align cyan-text text-darken-2'>{test.name}</h3>
+    <h3 className='center-align light-blue-text'>{test.name}</h3>
     <table className='highlight'>
       <tbody>
         <tr>
-          <th className='cyan-text text-darken-3'>Tipo de test</th>
-          <td><b className='cyan-text text-darken-4'>{test.tipo}</b></td>
+          <th className='light-blue-text'>Tipo de test</th>
+          <td><b className='grey-text text-darken-3'>{test.tipo}</b></td>
         </tr>
         <tr>
-          <th className='cyan-text text-darken-3'>Descripción</th>
-          <td><p className='cyan-text text-darken-4'>{test.descripcion}</p></td>
+          <th className='light-blue-text'>Descripción</th>
+          <td><p className='grey-text text-darken-3'>{test.descripcion}</p></td>
         </tr>
       </tbody>
     </table>
