@@ -106,53 +106,52 @@ export default class AgregarAlumnosPage extends React.Component<IAgregarAlumnosP
 
   render() {
     const { filter, alumnos, pid } = this.state;
- const { params } = this.props;
-
+    const { params } = this.props;
 
     return (
       <span>
         <section>
-        <a href='/grupos' onClick={browserHistory.goBack} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>arrow_back</i></a>
-          <h4 className='center'>Añadir alumnos a grupo : {pid}</h4>
-          <form className='form-horizontal' action='javascript:void(0)'>
-            <div className='form-group'>
-              <div className='control-group' id='lastName'>
-                <label className='col-sm-2 control-label'>Buscar por Apellido </label>
-                <div className='input-field inline'>
-                  <input  name='filter' value={filter || ''} onChange={this.onFilterChange} size={30} maxLength={80} />
-                  { /* <span className='help-inline'><form:errors path='*'/></span> TODO */}
+          <a href='/grupos' onClick={browserHistory.goBack} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>arrow_back</i></a>
+            <h4 className='center'>Añadir alumnos a grupo : {pid}</h4>
+            <form className='form-horizontal' action='javascript:void(0)'>
+              <div className='form-group'>
+                <div className='control-group' id='lastName'>
+                  <label className='col-sm-2 control-label'>Buscar por Apellido </label>
+                  <div className='input-field inline'>
+                    <input  name='filter' value={filter || ''} onChange={this.onFilterChange} size={30} maxLength={80} />
+                    { /* <span className='help-inline'><form:errors path='*'/></span> TODO */}
+                  </div>
+                   <a onClick={this.submitSearchForm} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>search</i></a>
                 </div>
-                 <a onClick={this.submitSearchForm} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>search</i></a>
               </div>
-            </div>
-          </form>
-        </section>
-        <br/>
-            <section>
+            </form>
+          </section>
+          <br/>
+              <section>
           <table className='highlight'>
-            <thead>
-              <tr>
-                <td>Nombres</td>
-                <td>Codigo</td>
-                <td>Añadir</td>
-              </tr>
-            </thead>
-            <tbody>
-              {alumnos.map( alumno => ( <tr key={alumno.id}>
-             <td>
-            <a href={`/alumnos/${alumno.id}`}>
-              {alumno.firstName} {alumno.lastName}
-            </a>
-          </td>
-            <td className='hidden-sm hidden-xs'>{alumno.codigo}</td>
-            <td><button onClick={() => this.add(alumno.id, pid)} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>add</i></button></td>
-             </tr>
-             ))}
-            </tbody>
+              <thead>
+                <tr>
+                  <td>Nombres</td>
+                  <td>Codigo</td>
+                  <td>Añadir</td>
+                </tr>
+              </thead>
+              <tbody>
+                {alumnos.map( alumno => ( <tr key={alumno.id}>
+               <td>
+              <a href={`/alumnos/${alumno.id}`}>
+                {alumno.firstName} {alumno.lastName}
+              </a>
+            </td>
+              <td className='hidden-sm hidden-xs'>{alumno.codigo}</td>
+              <td><button onClick={() => this.add(alumno.id, pid)} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>add</i></button></td>
+               </tr>
+               ))}
+              </tbody>
           </table>
-         <p className='center'>{alumnos.length} alumnos encontrados</p>
-      </section>
- </span>
+          <p className='center'>{alumnos.length} alumnos encontrados</p>
+        </section>
+      </span>
     );
   }
 };

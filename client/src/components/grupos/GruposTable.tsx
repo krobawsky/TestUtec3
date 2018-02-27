@@ -24,7 +24,7 @@ const renderGrupos = (grupos: IGrupo[]) => (
         {grupos.map(renderRow)}
       </tbody>
     </table>
-     <p className='center'>{grupos.length} grupos encontrados</p>
+    <p className='center'>{grupos.length} grupos encontrados</p>
   </section>
 );
 

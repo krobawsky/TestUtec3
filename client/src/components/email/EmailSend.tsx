@@ -18,8 +18,8 @@ interface IAlumnoEditorState {
   editableEmail?: IAlumno;
   alumno?: IAlumno;
   error?: IError;
+  mensaje?: string;
 };
-
 
 const tip = [{ value: 'Test del Estres', name: 'Test del Estres'}, { value: 'Test de Millon', name: 'Test de Millon'}];
 
@@ -37,7 +37,8 @@ export default class EmailSend extends React.Component<IAlumnoEditorProps, IAlum
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      alumno: Object.assign({}, props.initialEmail)
+      alumno: Object.assign({}, props.initialEmail),
+      mensaje: 'transparent-text'
     };
   }
 
@@ -46,47 +47,63 @@ export default class EmailSend extends React.Component<IAlumnoEditorProps, IAlum
 
     const { alumno } = this.state;
     console.log(alumno);
-    const url = alumno.isNew ? '/api/send-mail' : '/api/alumno/' + alumno.id;
-    submitForm(alumno.isNew ? 'POST' : 'PUT', url, alumno, (status, response) => {
-      if (status === 200 || status === 201) {
-        const newAlumno = response as IAlumno;
-        this.context.router.push({
-          pathname: '/emailform/emailenviado'
-        });
-      } else {
-        console.log('ERROR?!...', response);
-        this.setState({ error: response });
-      }
-    });
+
+    if ( alumno.lastName === '' || alumno.lastName === null ) {
+      this.alerta();
+    } else {
+      const url = alumno.isNew ? '/api/send-mail' : '/api/alumno/' + alumno.id;
+      submitForm(alumno.isNew ? 'POST' : 'PUT', url, alumno, (status, response) => {
+        if (status === 200 || status === 201) {
+          const newAlumno = response as IAlumno;
+          this.context.router.push({
+            pathname: '/emailform/emailenviado'
+          });
+        } else {
+          console.log('ERROR?!...', response);
+          this.setState({ error: response });
+        }
+      });
+    }
   }
 
   onInputChange(name: string, value: string) {
     const { alumno, editableEmail, error } = this.state;
     const modifiedEmail = Object.assign({}, alumno, { [name]: value });
-    console.log(modifiedEmail);
     this.setState({ alumno: modifiedEmail });
+  }
+
+  alerta  = () => {
+    this.setState ({
+      mensaje: 'white-text'
+    });
+    alert('Ingrese el apellido de un alumno o grupo válido');
   }
 
   render() {
     const { alumno, error } = this.state;
     return (
       <span>
-<ul id='slide-out' className='side-nav fixed'>
-      <li><a><i className='material-icons'>ADMINISTRADOR</i></a></li>
-      <li><a><img src='/images/admi.png' width='210' id='img' height='200' /></a></li>
-      <li><a><i className='material-icons'>e</i></a></li>
-         <li><a><i className='material-icons'>e</i></a></li>
-         <li><a><i className='material-icons'>e</i></a></li>
-      <li><a className='subheader'>Opciones</a></li>
-        <li><a href='/welcome' title='Enviar'><i className='material-icons'>send</i>Enviar Test</a></li>
-        <li><a href='/grupos' title='Grupos'><i className='material-icons'>group_add</i>Añadir grupos</a></li>
-        <li><div className='divider'></div></li>
-        <li><a className='subheader'>Resultados</a></li>
-        <li><a href='/alumnos/list' title='Alumnos'><i className='material-icons'>person</i>Alumnos</a></li>
-        <li><a href='/grupo/list' title='Grupos'><i className='material-icons'>group</i>Grupos</a></li>
-        <li><div className='divider'></div></li>
-        <li><a href='/'><i className='material-icons'>exit_to_app</i>CERRAR SESIÓN</a></li>
-      </ul>
+      <div className='col s1 left'>
+        <a className='btn-floating btn-large blue button-collapse' data-activates='slide-out'>
+          <i className='material-icons'>menu</i>
+        </a>
+        <ul id='slide-out' className='side-nav white'>
+          <li><a><i className='material-icons'>ADMINISTRADOR</i></a></li>
+          <li><a><img src='/images/admi.png' width='210' id='img' height='200' /></a></li>
+          <li><a><i className='material-icons'>e</i></a></li>
+           <li><a><i className='material-icons'>e</i></a></li>
+           <li><a><i className='material-icons'>e</i></a></li>
+          <li><a className='subheader'>Opciones</a></li>
+          <li><a href='/welcome' title='Enviar'><i className='material-icons'>send</i>Enviar Test</a></li>
+          <li><a href='/grupos' title='Grupos'><i className='material-icons'>group_add</i>Añadir grupos</a></li>
+          <li><div className='divider'></div></li>
+          <li><a className='subheader'>Resultados</a></li>
+          <li><a href='/alumnos/list' title='Alumnos'><i className='material-icons'>person</i>Alumnos</a></li>
+          <li><a href='/grupo/list' title='Grupos'><i className='material-icons'>group</i>Grupos</a></li>
+          <li><div className='divider'></div></li>
+          <li><a href='/'><i className='material-icons'>exit_to_app</i>CERRAR SESIÓN</a></li>
+        </ul>
+      </div>
       <br/><br/>
       <div className='row'>
         <div className='col s12 m6 offset-m3'>
@@ -99,8 +116,9 @@ export default class EmailSend extends React.Component<IAlumnoEditorProps, IAlum
                       <div className='col s12'>
                         Para:
                         <div className='input-field col12'>
-                        <Input object={alumno} error={error}  label='' name='lastName' onChange={this.onInputChange} />
-                         </div>
+                          <Input object={alumno} error={error}  label='' name='lastName' onChange={this.onInputChange} />
+                          <b className={this.state.mensaje}>Ingrese el apellido de un alumno o grupo válido</b>
+                        </div>
                       </div>
                    </div>
                   <div className='row'>
@@ -108,7 +126,7 @@ export default class EmailSend extends React.Component<IAlumnoEditorProps, IAlum
                       <div className='row'>
                         <div className='col s12'>
                         <div className='input-field col s12'>
-            <RadioB object={alumno} error={error} name={name} question={name} options={tip} onChange={this.onInputChange} />
+                          <RadioB object={alumno} error={error} name={name} question={name} options={tip} onChange={this.onInputChange} />
                         </div>
                       </div>
                     </div>

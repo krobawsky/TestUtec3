@@ -38,7 +38,21 @@ export default class AlumnosPage extends React.Component<IAlumnosPageProps, IAlu
     const { alumno } = this.state;
 
     if (!alumno) {
-      return <h2>No Alumno loaded</h2>;
+      return  <div className='center-align'>
+                <br></br><br></br><br></br><br></br><br></br>
+                <br></br><br></br><br></br><br></br><br></br>
+                <div className='preloader-wrapper big active'>
+                  <div className='spinner-layer spinner-blue-only'>
+                    <div className='circle-clipper left'>
+                      <div className='circle'></div>
+                    </div><div className='gap-patch'>
+                      <div className='circle'></div>
+                    </div><div className='circle-clipper right'>
+                      <div className='circle'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>;
     }
 
     return (

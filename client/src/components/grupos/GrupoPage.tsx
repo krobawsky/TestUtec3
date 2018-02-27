@@ -38,17 +38,31 @@ export default class GruposPage extends React.Component<IGruposPageProps, IGrupo
     const { grupo } = this.state;
 
     if (!grupo) {
-      return <h2>No Grupo loaded</h2>;
+      return  <div className='center-align'>
+                <br></br><br></br><br></br><br></br><br></br>
+                <br></br><br></br><br></br><br></br><br></br>
+                <div className='preloader-wrapper big active'>
+                  <div className='spinner-layer spinner-blue-only'>
+                    <div className='circle-clipper left'>
+                      <div className='circle'></div>
+                    </div><div className='gap-patch'>
+                      <div className='circle'></div>
+                    </div><div className='circle-clipper right'>
+                      <div className='circle'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>;
     }
 
     return (
       <span>
         <div className='row'>
           <div className='col s12 m4 l3'>
-        <GrupoInformation grupo={grupo} />
+            <GrupoInformation grupo={grupo} />
           </div>
           <div className='col s12 m8 l9'>
-         <GrupoResultado grupo={grupo} />
+            <GrupoResultado grupo={grupo} />
           </div>
         </div>
       </span>

@@ -6,7 +6,7 @@ import FieldFeedbackPanel from './FieldFeedbackPanel';
 
 import { RadioGroup, RadioButton, ReversedRadioButton } from '../../../node_modules/react-radio-buttons';
 
- interface IRadioOption {
+interface IRadioOption {
   id: number;
   value: number;
   alternativa: string;
