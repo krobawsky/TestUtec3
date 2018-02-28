@@ -540,12 +540,16 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                   <li className='collection-item' key={pregunta.id}>
                     <div className='row'>
                       <br/>
-                      <div className='col s12 m8 l9'>
+                      <div className='col s12'>
                         <strong className='title grey-text text-darken-3'>{pregunta.posicion})  {pregunta.pregunta}</strong>
                       </div>
-                      <div className='col s12 m4 l3'>
-                        <RadioInput object={editableAlter} error={error} name={pregunta.tipos} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
+                      <div className='col s12 m10 offset-m1'>
+                        <br/>
+                        <div className='center-align'>
+                          <RadioInput object={editableAlter} error={error} name={pregunta.tipos} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
+                        </div>
                       </div>
+                      <br/>
                       <br/>
                     </div>
                   </li>

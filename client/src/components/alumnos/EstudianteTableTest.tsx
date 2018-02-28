@@ -36,8 +36,8 @@ export default ({alumno}: { alumno: IAlumno }) => (
                   ) : ( resultado.test === 'Test de Millon' ? (
                     <Link to={{ pathname : `/student/tests/millon`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
                   ) : (
-                    <a href={`/student/tests/${resultado.id}/baron`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>
-                  ))}
+                    <Link to={{ pathname : `/student/tests/baron`, state: { resultadoId: resultado.id }}} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></Link>
+                    ))}
                 </td>
               </tr>
               ) : (

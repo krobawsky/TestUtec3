@@ -8,6 +8,7 @@ import RadioInput2 from '../form/RadioInput2';
 
 interface IPregProps {
   params?: IPregunta[];
+  resultadoId?: string;
   resultsTotalProps?: {};
   resultsVProps?: {};
   resultsXProps?: {};

@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import { Link } from 'react-router';
 import { url, submitForm } from '../../util';
 
 import TestInformation from './TestInformation';
-import Test2Preguntas from './Test2Preguntas';
+import TestPreguntas2 from './TestPreguntas2';
 
 import RadioInput from '../form/RadioInput';
 import { IError, IRouterContext, ITest, IPregunta, IAlternativa } from '../../types';
@@ -15,20 +16,20 @@ interface ITestPageProps {
 
 interface ITestPageState {
   test?: ITest;
+  resultadoId?: string;
 }
 
 export default class Test2Page extends React.Component<ITestPageProps, ITestPageState> {
 
- constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { resultadoId: props.location.state.resultadoId };
   }
 
   componentDidMount() {
-    const requestUrl = url('api/tests/2');
-
-    fetch(requestUrl)
+    const fetchUrl = url('api/tests/2');
+    fetch(fetchUrl)
         .then(response => response.json())
         .then(test => { console.log('test', test); this.setState({ test }); });
   }
@@ -41,6 +42,9 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
 
   render() {
     const { test } = this.state;
+    const { resultadoId } = this.state;
+    console.log('Test2Page: ' + resultadoId);
+
     if (!test) {
       return  <div className='center-align'>
                 <br></br><br></br><br></br><br></br><br></br>
@@ -58,13 +62,11 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
                 </div>
               </div>;
     }
-    const { resultadoId } = this.state;
-    // console.log('Test2Page: ' + resultadoId);
 
     return (
       <span>
         <TestInformation test={test} />
-        <Test2Preguntas params={test.preguntas} resultadoId={resultadoId}/>
+        <TestPreguntas2 params={test.preguntas} resultadoId={resultadoId}/>
       </span>
     );
  }

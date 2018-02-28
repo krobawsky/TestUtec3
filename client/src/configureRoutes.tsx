@@ -17,7 +17,7 @@ import NuevoGrupoPage from './components/grupos/NuevoGrupoPage';
 import AgregarAlumnoPage from './components/grupos/AgregarAlumnoPage';
 import FindGruposPage from './components/grupos/FindGruposPage';
 import TestsPage from './components/tests/TestsPage';
-import TestPage from './components/tests/TestPage';
+import Test1Page from './components/tests/Test1Page';
 import Test2Page from './components/tests/Test2Page';
 import Test3Page from './components/tests/Test3Page';
 import papel from './components/papel';
@@ -56,7 +56,7 @@ export default () => (
     <Route path='/grupo/list' component={FindGruposPage} />
     <Route path='/grupos/detalle/:grupoId' component={GrupoPage} />
     <Route path='/tests' component={TestsPage} />
-    <Route path='/student/tests/estres' component={TestPage} />
+    <Route path='/student/tests/estres' component={Test1Page} />
     <Route path='/student/tests/millon' component={Test2Page} />
     <Route path='/student/tests/baron' component={Test3Page} />
     <Route path='/users/list' component={AgregarPsicologosPage} />

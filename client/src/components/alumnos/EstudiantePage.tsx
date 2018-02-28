@@ -38,24 +38,38 @@ export default class EstudiantePage extends React.Component<IAlumnosPageProps, I
     const { alumno } = this.state;
 
     if (!alumno) {
-      return <h2>No Alumno loaded</h2>;
+      return  <div className='center-align'>
+                <br></br><br></br><br></br><br></br><br></br>
+                <br></br><br></br><br></br><br></br><br></br>
+                <div className='preloader-wrapper big active'>
+                  <div className='spinner-layer spinner-blue-only'>
+                    <div className='circle-clipper left'>
+                      <div className='circle'></div>
+                    </div><div className='gap-patch'>
+                      <div className='circle'></div>
+                    </div><div className='circle-clipper right'>
+                      <div className='circle'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>;
     }
 
     return (
       <span>
         <div className='row'>
           <div className='col s12 m4 l3'>
-       <div className='center-align'>
-      <img className='circle responsive-img' src='https://www.almabay.com/common/marvel/images/default-male-avatar.png'/>
-      <div className='divider'></div>
-      <h4 className='center-align cyan-text text-darken-2'>{alumno.firstName} {alumno.lastName}</h4>
-      <div className='divider'></div>
-      <br/><br/><br/>
-       <div><a href='/'><i className='material-icons'>exit_to_app</i>CERRAR SESIÓN</a></div>
-    </div>
+            <div className='center-align'>
+              <img className='circle responsive-img' src='https://www.almabay.com/common/marvel/images/default-male-avatar.png'/>
+              <div className='divider'></div>
+              <h4 className='center-align cyan-text text-darken-2'>{alumno.firstName} {alumno.lastName}</h4>
+              <div className='divider'></div>
+              <br/><br/><br/>
+              <div><a href='/'><i className='material-icons'>exit_to_app</i>CERRAR SESIÓN</a></div>
+            </div>
           </div>
           <div className='col s12 m8 l9'>
-         <EstudianteTableTest alumno={alumno} />
+            <EstudianteTableTest alumno={alumno} />
           </div>
         </div>
       </span>
