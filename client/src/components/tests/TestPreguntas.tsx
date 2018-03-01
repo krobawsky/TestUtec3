@@ -95,8 +95,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
   onInputChange(name: string, question: string, value: string) {
     const { editableAlter, resultsTotal, results1, results2, results3, results4, results5, results6, results7, results8, results9, results10, results11, results12, results13 } = this.state;
     // console.log( results[name] );
-    const agregarTotal = Object.assign({}, resultsTotal, {[question]: +value });
-    this.setState({ resultsTotal: agregarTotal });
 
     if ( name === 'Afrontamiento Directo') {
       const agregar = Object.assign({}, results1, {[question]: +value });
@@ -138,6 +136,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
       const agregar = Object.assign({}, results13, {[question]: +value });
       this.setState({ results13: agregar });
     }
+    const agregarTotal = Object.assign({}, resultsTotal, {[question]: +value });
+    this.setState({ resultsTotal: agregarTotal });
   }
 
   onSubmit(event) {

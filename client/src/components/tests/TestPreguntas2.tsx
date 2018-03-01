@@ -130,7 +130,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
-onInputChange(name: any, pos: number, question: string, value: any) {
+
+  onInputChange(name: any, pos: number, question: string, value: any) {
     const { editableAlter, resultsTotal, resultsV, resultsX, resultsY, resultsZ, results1, results2, results3, results4, results5, results6A, results6B, results7, results8A, results8B, resultsS, resultsC, resultsP, resultsA, resultsH, resultsN, resultsD, resultsB, resultsT, resultsSS, resultsCC, resultsPP  } = this.state;
     // console.log( value );
     for (const propiedad in name) {
@@ -138,7 +139,7 @@ onInputChange(name: any, pos: number, question: string, value: any) {
         // console.log('En la propiedad ' + propiedad + ' hay este valor: ' + JSON.stringify(name[propiedad].name));
         const tipo = JSON.parse(JSON.stringify(name[propiedad].name));
         // console.log( tipo );
-      const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista', 'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Deseabilidad Social', 'Autodescalificación', 'Validez'];
+        const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista', 'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Deseabilidad Social', 'Autodescalificación', 'Validez'];
         if ( tipo === tipos[0] ) {
           if ( value === 'Verdadero') {
             const poss3 = [2, 13, 19, 34, 81, 143, 161];

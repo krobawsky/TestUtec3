@@ -34,7 +34,7 @@ export type IInputChangeHandler = (name: string, value: string, error: IFieldErr
 
 export type IInputChangeHandler2 = (name: string, question:string , value: string, error: IFieldError) => void;
 
-export type IInputChangeHandler3 = (names: any, pos:string, question:string , value: string, error: IFieldError) => void;
+export type IInputChangeHandler3 = (names: any, pos:number, question:string , value: string, error: IFieldError) => void;
 
 export interface ISelectOption {
   value: string|number;
