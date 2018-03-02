@@ -10,7 +10,7 @@ import RadioInput from '../form/RadioInput';
 import { IError, IRouterContext, ITest, IPregunta, IAlternativa } from '../../types';
 
 interface ITestPageProps {
-  params?: resultadoId;
+  params?: { resultadoId };
   location: HistoryModule.Location;
 }
 
@@ -37,7 +37,7 @@ export default class TestPage extends React.Component<ITestPageProps, ITestPageS
   render() {
     const { test } = this.state;
     const { resultadoId } = this.state;
-    console.log('TestPage: ' + resultadoId);
+    // console.log('TestPage: ' + resultadoId);
 
     if (!test) {
       return  <div className='center-align'>

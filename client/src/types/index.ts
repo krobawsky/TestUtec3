@@ -32,9 +32,9 @@ export interface IConstraint {
 
 export type IInputChangeHandler = (name: string, value: string, error: IFieldError) => void;
 
-export type IInputChangeHandler2 = (name: string, question:string , value: string, error: IFieldError) => void;
+export type IInputChangeHandler2 = (name: string, question:string , value: number, error: IFieldError) => void;
 
-export type IInputChangeHandler3 = (names: any, pos:number, question:string , value: string, error: IFieldError) => void;
+export type IInputChangeHandler3 = (names: any, pos:number, question:string , value: number, error: IFieldError) => void;
 
 export interface ISelectOption {
   value: string|number;
@@ -94,7 +94,6 @@ export interface IResultadoRequest {
 }
 
 export interface IAlumno extends IPerson {
-
   codigo: string;
   password: string;
   correo: string;
@@ -102,8 +101,6 @@ export interface IAlumno extends IPerson {
   carrera: string;
   edad: string;
   genero: string;
-  telefono: string;
-  promedio: string;
   resultados: IResultado[];
 };
 
@@ -128,6 +125,7 @@ export interface IGrupo extends INamedEntity {
 export interface IValores extends IBaseEntity {
   tipo: string;
   value: number;
+  poss: number;
   descripcion: string;
 };
 

@@ -22,6 +22,9 @@ public class Valores extends BaseEntity {
     @Column(name = "value")
     private Integer value;
     
+    @Column(name = "position")
+    private Integer poss;
+    
     @Column(name = "descripcion")
     private String descripcion;
     
@@ -45,6 +48,14 @@ public class Valores extends BaseEntity {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public Integer getPoss() {
+		return poss;
+	}
+
+	public void setPoss(Integer poss) {
+		this.poss = poss;
 	}
 
 	public String getDescripcion() {

@@ -18,11 +18,8 @@ export default ({alumno}: { alumno: IAlumno }) => (
       <br/>
        </div>
       <h5 className='cyan-text'>Edad: <span className='cyan-text text-darken-2'>{alumno.edad}</span></h5>
-      <h5 className='cyan-text'>Carrera: <span className='cyan-text text-darken-2'>{alumno.carrera}</span></h5>
+      <h5 className='cyan-text'>Carrera: <span className='cyan-text text-darken-2 truncate'>{alumno.carrera}</span></h5>
       <h5 className='cyan-text'>Fec. Ingreso: <span className='cyan-text text-darken-2'>{alumno.ingreso}</span></h5>
-      <h5 className='cyan-text'>Correo: <span className='cyan-text text-darken-2'>{alumno.correo}</span></h5>
-      <h5 className='cyan-text'>Teléfono: <span className='cyan-text text-darken-2'>{alumno.telefono}</span></h5>
-      <h5 className='cyan-text'>Promedio Ponderado: <span className='cyan-text text-darken-2'>{alumno.promedio}</span></h5>
-
+      <h5 className='cyan-text'>Correo: <span className='cyan-text text-darken-2 truncate'>{alumno.correo}</span></h5>
   </section>
 );
