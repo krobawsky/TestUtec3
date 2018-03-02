@@ -8,8 +8,6 @@ public class ValoresRequest {
 	
 	private Integer  value;
 	
-	private Integer  poss;
-	
 	private String  descripcion;
 
 	public Integer getId() {
@@ -34,14 +32,6 @@ public class ValoresRequest {
 
 	public void setValue(Integer value) {
 		this.value = value;
-	}
-	
-	public Integer getPoss() {
-		return poss;
-	}
-
-	public void setPoss(Integer poss) {
-		this.poss = poss;
 	}
 
 	public String getDescripcion() {

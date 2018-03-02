@@ -9,7 +9,6 @@ import RadioInput2 from '../form/RadioInput2';
 interface IPregProps {
   params?: IPregunta[];
   resultadoId?: string;
-  genero?: string;
   resultsTotalProps?: {};
   resultsVProps?: {};
   resultsXProps?: {};
@@ -82,7 +81,6 @@ interface IResultadoRequest {
 interface IValoresRequest {
   tipo?: string;
   value?: number;
-  poss?: number;
   descripcion?: string;
 }
 
@@ -143,7 +141,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         // console.log( tipo );
         const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista', 'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Deseabilidad Social', 'Autodescalificación', 'Validez'];
         if ( tipo === tipos[0] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [2, 13, 19, 34, 81, 143, 161];
             const poss2 = [10, 33, 47, 83, 106, 124, 150, 20];
             const poss1 = [16, 22, 25, 46, 53, 85, 108, 141, 142, 159, 160];
@@ -168,7 +166,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results1: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [48];
             const poss1 = [14, 28, 60, 78, 95, 103, 111, 125];
@@ -196,7 +194,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[1]  ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [3, 8, 49, 63, 77, 120, 141, 158];
             const poss2 = [19, 23, 25, 27, 32, 47, 56, 57, 83, 102, 110, 115, 118, 150, 150, 171];
             const poss1 = [2, 34, 45, 81, 85, 106, 109, 113, 133, 139, 147, 160];
@@ -221,7 +219,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results2: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [14, 21, 28, 125, 163];
@@ -249,7 +247,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[2] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [10, 31, 42, 78, 108, 133, 145, 159, 173];
             const poss2 = [34, 57, 60, 77, 81, 97];
             const poss1 = [49, 54, 75, 110, 125, 149, 168];
@@ -274,7 +272,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results3: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [4];
             const poss1 = [7, 12, 21, 28, 40, 41, 43, 74, 91, 92, 101, 147, 162, 163];
@@ -302,7 +300,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[3] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [14, 20, 28, 48, 60, 86, 111, 125, 137, 170];
             const poss2 = [9, 42, 43, 66, 103, 133, 166, 51];
             const poss1 = [7, 37, 40, 41, 56, 89, 91, 95, 128, 130, 142, 162, 171, 172, 173];
@@ -327,7 +325,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results4: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [158];
             const poss1 = [3, 19, 39, 51, 77, 126];
@@ -355,7 +353,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[4] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [1, 6, 15, 37, 89, 91, 129, 131, 142, 166];
             const poss2 = [4, 14, 16, 41, 86, 103, 111, 125, 137, 165, 170, 171, 172];
             const poss1 = [2, 12, 22, 28, 32, 43, 55, 60, 80, 85, 126, 1329, 130, 134, 135, 143, 146, 163];
@@ -380,7 +378,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results5: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [42, 149, 158];
             const poss1 = [81, 31, 45, 51, 78, 106];
@@ -408,7 +406,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[5] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [7, 40, 92, 94, 103, 116, 130, 147, 162, 172];
             const poss2 = [1, 12, 20, 22, 38, 43, 55, 73, 74, 80, 86, 87, 91, 129, 142, 144, 165];
             const poss1 = [15, 32, 44, 48, 64, 85, 101, 104, 111, 113, 140, 157, 171];
@@ -433,7 +431,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results6A: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [42, 78, 81];
             const poss1 = [34, 77];
@@ -461,7 +459,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[6] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [4, 9, 12, 30, 41, 44, 101, 134, 148, 163];
             const poss2 = [1, 21, 64, 74, 82, 84, 91, 107, 115, 121, 129, 155, 166];
             const poss1 = [7, 32, 38, 40, 43, 58, 66, 80, 86, 95, 135, 142, 146, 147, 165];
@@ -486,7 +484,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results6B: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [42, 77, 78];
             const poss1 = [31, 71, 106, 145];
@@ -514,7 +512,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[7] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [21, 39, 46, 61, 75, 88, 126, 138, 149, 153];
             const poss2 = [64, 134, 148, 159, 161, 163];
             const poss1 = [4, 32, 74, 78, 81];
@@ -539,7 +537,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results7: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [20, 48, 86, 145];
             const poss1 = [7, 40, 43, 50, 60, 66, 77, 92, 95, 103, 111, 128, 155];
@@ -567,7 +565,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[8] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [22, 50, 55, 66, 95, 104, 107, 135, 156, 165];
             const poss2 = [9, 16, 28, 43, 64, 73, 74, 77, 82, 86, 101, 115, 123, 128, 155];
             const poss1 = [1, 4, 12, 21, 23, 25, 51, 58, 110, 120, 129, 139, 171];
@@ -592,7 +590,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results8A: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [149, 159];
             const poss1 = [6];
@@ -620,7 +618,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[9] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [23, 57, 65, 110, 121, 139, 154, 168];
             const poss2 = [10, 16, 28, 42, 45, 51, 54, 56, 77, 106, 115, 120, 132, 145, 155];
             const poss1 = [8, 18, 25, 31, 63, 71, 73, 81, 82, 99, 128, 133, 141, 167, 171, 173];
@@ -645,7 +643,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ results8B: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [74];
@@ -673,7 +671,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[10] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [24, 47, 69, 83, 102, 112, 118, 150];
             const poss2 = [2, 3, 8, 31, 38, 49, 63, 77, 85, 100, 113, 120, 123, 124, 133, 141, 158, 164];
             const poss1 = [10, 13, 19, 23, 25, 53, 108, 130, 136, 147, 160, 161, 162, 165];
@@ -698,7 +696,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsS: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [168];
             const poss1 = [14, 48, 60];
@@ -726,7 +724,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[11] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [25, 43, 56, 58, 73, 82, 113, 115, 128, 155, 171];
             const poss2 = [5, 22, 23, 26, 27, 35, 50, 59, 66, 79, 91, 95, 97, 101, 129, 136, 140, 142, 156];
             const poss1 = [7, 36, 40, 44, 51, 53, 54, 57, 65, 67, 72, 74, 77, 78, 94, 99, 103, 104, 108, 110, 130, 132, 135, 139, 144, 147, 154, 162, 165, 167, 178, 173];
@@ -751,7 +749,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsC: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -779,7 +777,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[12] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [16, 32, 38, 64, 74, 84, 85, 146, 164];
             const poss2 = [15, 24, 37, 46, 80, 89, 100, 103, 123, 126, 129, 131];
             const poss1 = [6, 12, 21, 22, 30, 39, 41, 43, 44, 55, 61, 63, 68, 75, 98, 127, 135, 138, 143, 163, 165, 171, 172];
@@ -804,7 +802,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsP: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -832,7 +830,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[13] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [18, 51, 67, 114, 117];
             const poss2 = [29, 33, 53, 71, 96, 97, 109, 167];
             const poss1 = [8, 16, 26, 36, 54, 78, 99, 108, 132, 145, 153];
@@ -857,7 +855,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsA: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [166];
@@ -885,7 +883,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[14] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [29, 33, 68, 71, 72, 96];
             const poss2 = [18, 51, 53, 67, 98, 114];
             const poss1 = [5, 26, 31, 36, 42, 50, 56, 60, 66, 78, 102, 109, 117, 118, 137, 145, 170, 173];
@@ -910,7 +908,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsH: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [41];
@@ -938,7 +936,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[15] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [11, 93, 151, 174];
             const poss2 = [14, 20, 28, 50, 60, 86, 103, 125, 128, 134, 137, 170];
             const poss1 = [17, 37, 40, 58, 686, 67, 73, 89, 95, 98, 101, 111, 121, 127, 131, 166, 172];
@@ -963,7 +961,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsN: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [19, 42, 158, 161];
@@ -991,7 +989,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[16] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [27, 45, 54, 79, 97, 99, 108, 132];
             const poss2 = [5, 8, 26, 36, 51, 53, 59, 65, 71, 72, 76, 83, 96, 109, 136, 154];
             const poss1 = [25, 46, 56, 107, 110, 139, 155, 167, 168];
@@ -1016,7 +1014,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsD: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [166];
             const poss1 = [41, 86];
@@ -1044,7 +1042,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[17] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [17, 87, 119, 157];
             const poss2 = [18, 73, 95, 97, 105, 109, 144, 175];
             const poss1 = [22, 23, 25, 27, 35, 40, 46, 54, 65, 70, 80, 93, 96, 103, 104, 104, 108, 111, 114, 117, 125, 128, 130, 135, 137, 149, 149, 155, 159, 162, 171];
@@ -1069,7 +1067,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsB: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [52, 122];
             const poss1 = [8];
@@ -1097,7 +1095,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[18] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [35, 78, 105, 140, 144, 175];
             const poss2 = [1, 7, 9, 20, 22, 40, 43, 58, 73, 80, 82, 86, 91, 92, 95, 103, 115, 117, 129, 162];
             const poss1 = [6, 12, 14, 30, 32, 44, 50, 55, 60, 66, 89, 93, 94, 101, 104, 111, 113, 114, 116, 120, 123, 125, 128, 130, 137, 146, 155, 165, 166, 171, 172];
@@ -1122,7 +1120,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsT: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [61];
@@ -1150,7 +1148,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[19] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [98, 109, 124, 127, 160, 167];
             const poss2 = [38, 68, 69, 77, 80, 83, 85, 102, 112, 115, 120, 146, 164];
             const poss1 = [3, 8, 13, 19, 23, 24, 29, 31, 74, 82, 141, 147, 156, 161];
@@ -1175,7 +1173,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsSS: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -1203,7 +1201,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[20] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [5, 26, 36, 53, 59, 76, 136];
             const poss2 = [33, 45, 47, 50, 56, 72, 79, 96, 108, 109];
             const poss1 = [19, 51, 54, 57, 58, 65, 67, 81, 95, 99, 110, 117, 154];
@@ -1228,7 +1226,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsCC: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -1256,7 +1254,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[21] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [80, 100, 123];
             const poss2 = [16, 24, 38, 69, 84, 85, 98, 131, 146, 164];
             const poss1 = [15, 32, 39, 74, 89, 112, 126, 138, 143];
@@ -1281,7 +1279,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsPP: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -1309,7 +1307,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[22] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [4, 14, 34, 39, 60, 61, 75, 78, 86, 88, 89, 93, 103, 106, 122, 125, 126, 137, 138, 149, 153, 159, 166];
@@ -1334,7 +1332,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsY: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -1362,7 +1360,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[23] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [3, 5, 8, 18, 23, 24, 25, 26, 27, 33, 36, 43, 45, 49, 50, 51, 53, 54, 58, 59, 63, 66, 67, 68, 71, 72, 76, 79, 82, 96, 97, 99, 100, 102, 108, 110, 114, 115, 117, 118, 120, 128, 132, 136, 158, 167];
@@ -1387,7 +1385,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsZ: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [];
@@ -1415,7 +1413,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           }
         }
         if ( tipo === tipos[24] ) {
-          if ( value === 'V') {
+          if ( value === 'Verdadero') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [62, 90, 152, 169];
@@ -1440,7 +1438,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                 this.setState({ resultsV: agregar });
               }
             }
-          } else if ( value === 'F') {
+          } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
             const poss1 = [62, 90, 152, 169];
@@ -1476,8 +1474,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
   onSubmit(event) {
     event.preventDefault();
 
-    const resultadoId = this.props.resultadoId;
-    const genero = this.props.genero;
+    let resultadoId = this.props.resultadoId;
 
     const { editableAlter, resultsTotal, resultsV, resultsX, resultsY, resultsZ, results1, results2, results3, results4, results5, results6A, results6B, results7, results8A,
       results8B, resultsS, resultsC, resultsP, resultsA, resultsH, resultsN, resultsD, resultsB, resultsT, resultsSS, resultsCC, resultsPP  } = this.state;
@@ -1538,6 +1535,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
 
     if ( Object.getOwnPropertyNames(resultsTotal).sort().length < Object.getOwnPropertyNames(editableAlter).sort().length ) {
       alert( 'Debe contestar todas las preguntas!' );
+      // console.log( results1 );
     } else {
       this.test();
 
@@ -1568,7 +1566,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
       let resPP = Object.values(resultsPP).reduce((a, b) => a + b); // Total
       let resX = (res4 + res8A) * 1.5 + (res1 + res2 + res3 + res8B) * 1.6 + (res5 + res6A + res6B + res7);
       let i = 0;
-      const sexo = genero;
+      const sexo = 'F';
 
       // para la Escala X (puntaje)
       for (i ;  i < 30 ; i++) {
@@ -2270,7 +2268,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'X',
             value: +total,
-            poss: 1,
             descripcion: desc
           };
           // Post
@@ -2289,7 +2286,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'Y',
             value: +total,
-            poss: 2,
             descripcion: desc
           };
           // Post
@@ -2308,7 +2304,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'Z',
             value: +total,
-            poss: 3,
             descripcion: desc
           };
           // Post
@@ -2327,7 +2322,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '1',
             value: +total,
-            poss: 4,
             descripcion: desc
           };
           // Post
@@ -2346,7 +2340,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '2',
             value: +total,
-            poss: 5,
             descripcion: desc
           };
           // Post
@@ -2365,7 +2358,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '3',
             value: +total,
-            poss: 6,
             descripcion: desc
           };
           // Post
@@ -2384,7 +2376,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '4',
             value: +total,
-            poss: 7,
             descripcion: desc
           };
           // Post
@@ -2403,7 +2394,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '5',
             value: +total,
-            poss: 8,
             descripcion: desc
           };
           // Post
@@ -2422,7 +2412,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '6A',
             value: +total,
-            poss: 9,
             descripcion: desc
           };
           // Post
@@ -2441,7 +2430,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '6B',
             value: +total,
-            poss: 10,
             descripcion: desc
           };
           // Post
@@ -2460,7 +2448,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '7',
             value: +total,
-            poss: 11,
             descripcion: desc
           };
           // Post
@@ -2479,7 +2466,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '8A',
             value: +total,
-            poss: 12,
             descripcion: desc
           };
           // Post
@@ -2498,7 +2484,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: '8B',
             value: +total,
-            poss: 13,
             descripcion: desc
           };
           // Post
@@ -2517,7 +2502,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'S',
             value: +total,
-            poss: 14,
             descripcion: desc
           };
           // Post
@@ -2536,7 +2520,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'C',
             value: +total,
-            poss: 15,
             descripcion: desc
           };
           // Post
@@ -2555,7 +2538,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'P',
             value: +total,
-            poss: 16,
             descripcion: desc
           };
           // Post
@@ -2574,7 +2556,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'A',
             value: +total,
-            poss: 17,
             descripcion: desc
           };
           // Post
@@ -2593,7 +2574,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'H',
             value: +total,
-            poss: 18,
             descripcion: desc
           };
           // Post
@@ -2612,7 +2592,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'N',
             value: +total,
-            poss: 19,
             descripcion: desc
           };
           // Post
@@ -2631,7 +2610,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'D',
             value: +total,
-            poss: 20,
             descripcion: desc
           };
           // Post
@@ -2650,7 +2628,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'B',
             value: +total,
-            poss: 21,
             descripcion: desc
           };
           // Post
@@ -2687,7 +2664,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'SS',
             value: +total,
-            poss: 23,
             descripcion: desc
           };
           // Post
@@ -2706,7 +2682,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'CC',
             value: +total,
-            poss: 24,
             descripcion: desc
           };
           // Post
@@ -2725,7 +2700,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'PP',
             value: +total,
-            poss: 25,
             descripcion: desc
           };
           // Post

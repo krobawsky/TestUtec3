@@ -10,14 +10,13 @@ import RadioInput from '../form/RadioInput';
 import { IError, IRouterContext, ITest, IPregunta, IAlternativa } from '../../types';
 
 interface ITestPageProps {
-  params?: { resultadoId, genero };
+  params?: resultadoId;
   location: HistoryModule.Location;
 }
 
 interface ITestPageState {
   test?: ITest;
   resultadoId?: string;
-  genero?: string;
 }
 
 export default class Test2Page extends React.Component<ITestPageProps, ITestPageState> {
@@ -25,10 +24,7 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
   constructor(props) {
     super(props);
 
-    this.state = {
-      resultadoId: props.location.state.resultadoId,
-      genero: props.location.state.genero
-    };
+    this.state = { resultadoId: props.location.state.resultadoId };
   }
 
   componentDidMount() {
@@ -46,8 +42,8 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
 
   render() {
     const { test } = this.state;
-    const { resultadoId, genero } = this.state;
-    // console.log('Test2Page: ' + resultadoId);
+    const { resultadoId } = this.state;
+    console.log('Test2Page: ' + resultadoId);
 
     if (!test) {
       return  <div className='center-align'>
@@ -70,7 +66,7 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
     return (
       <span>
         <TestInformation test={test} />
-        <TestPreguntas2 params={test.preguntas} resultadoId={resultadoId} genero={genero}/>
+        <TestPreguntas2 params={test.preguntas} resultadoId={resultadoId}/>
       </span>
     );
  }

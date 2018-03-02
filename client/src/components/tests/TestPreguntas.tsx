@@ -55,7 +55,6 @@ interface IResultadoRequest {
 interface IValoresRequest {
   tipo?: string;
   value?: number;
-  poss?: number;
   descripcion?: string;
 }
 
@@ -93,8 +92,9 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  onInputChange(name: string, question: string, value: number) {
+  onInputChange(name: string, question: string, value: string) {
     const { editableAlter, resultsTotal, results1, results2, results3, results4, results5, results6, results7, results8, results9, results10, results11, results12, results13 } = this.state;
+    // console.log( results[name] );
 
     if ( name === 'Afrontamiento Directo') {
       const agregar = Object.assign({}, results1, {[question]: +value });
@@ -153,34 +153,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
     } else {
       this.test();
 
-      const res1 = Object.values(results1).reduce((a, b) => a + b); // Total
-      const res2 = Object.values(results2).reduce((a, b) => a + b); // Total
-      const res3 = Object.values(results3).reduce((a, b) => a + b); // Total
-      const res4 = Object.values(results4).reduce((a, b) => a + b); // Total
-      const res5 = Object.values(results5).reduce((a, b) => a + b); // Total
-      const res6 = Object.values(results6).reduce((a, b) => a + b); // Total
-      const res7 = Object.values(results7).reduce((a, b) => a + b); // Total
-      const res8 = Object.values(results8).reduce((a, b) => a + b); // Total
-      const res9 = Object.values(results9).reduce((a, b) => a + b); // Total
-      const res10 = Object.values(results10).reduce((a, b) => a + b); // Total
-      const res11 = Object.values(results11).reduce((a, b) => a + b); // Total
-      const res12 = Object.values(results12).reduce((a, b) => a + b); // Total
-      const res13 = Object.values(results13).reduce((a, b) => a + b); // Total
-
-      console.log('Escala 1: ' + res1);
-      console.log('Escala 2: ' + res2);
-      console.log('Escala 3: ' + res3);
-      console.log('Escala 4: ' + res4);
-      console.log('Escala 5: ' + res5);
-      console.log('Escala 6: ' + res6);
-      console.log('Escala 7: ' + res7);
-      console.log('Escala 8: ' + res8);
-      console.log('Escala 9: ' + res9);
-      console.log('Escala 10: ' + res10);
-      console.log('Escala 11: ' + res11);
-      console.log('Escala 12: ' + res12);
-      console.log('Escala 13: ' + res13);
-
       // Dia actual
       const fec = new Date();
       let dd = fec.getDate();
@@ -216,7 +188,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
       for ( num = 0; num < 13; num++ ) {
 
         if (num === 0) {
-          const total = res1;
+          // const valId = Math.floor(Math.random() * 999999); // Id
+          const total = Object.values(results1).reduce((a, b) => a + b); // Total
           let desc = 'Posee un Afrontamiento Directo promedio'; // Desdcription
           if (total < 2 ) {
             desc = 'Posee un Afrontamiento Directo muy bajo';
@@ -226,7 +199,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AD',
             value: +total,
-            poss: 1,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -241,7 +213,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 1) {
-          const total = res2;
+          const total = Object.values(results2).reduce((a, b) => a + b);
           let desc = 'Posee una Planificación de Actividades promedio';
           if (total < 2 ) {
             desc = 'Posee una Planificación de Actividades muy bajo';
@@ -251,7 +223,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'PA',
             value: +total,
-            poss: 2,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -266,7 +237,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 2) {
-          const total = res3;
+          const total = Object.values(results3).reduce((a, b) => a + b);
           let desc = 'Posee una Superación de Actividades Competitivas promedio';
           if (total < 2 ) {
             desc = 'Posee una Superación de Actividades Competitivas muy bajo';
@@ -276,7 +247,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'SAC',
             value: +total,
-            poss: 3,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -291,7 +261,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 3) {
-          const total = res4;
+          const total = Object.values(results4).reduce((a, b) => a + b);
           let desc = 'Posee una Retracción del afrontamiento promedio';
           if (total < 2 ) {
             desc = 'Posee una Retracción del afrontamiento muy bajo';
@@ -301,7 +271,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'RA',
             value: +total,
-            poss: 4,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -316,7 +285,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 4) {
-          const total = res5;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results5).reduce((a, b) => a + b);
           let desc = 'Posee una Búsqueda de soporte social promedio';
           if (total < 2 ) {
             desc = 'Posee una Búsqueda de soporte social muy bajo';
@@ -326,7 +296,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'BSS',
             value: +total,
-            poss: 5,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -341,7 +310,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 5) {
-          const total = res6;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results6).reduce((a, b) => a + b);
           let desc = 'Posee una Búsqueda de soporte emocional promedio';
           if (total < 2 ) {
             desc = 'Posee una Búsqueda de soporte emocional muy bajo';
@@ -351,7 +321,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'BSE',
             value: +total,
-            poss: 6,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -366,7 +335,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 6) {
-          const total = res7;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results7).reduce((a, b) => a + b);
           let desc = 'Posee una Reinterpretación positiva de la experiencia promedio';
           if (total < 2 ) {
             desc = 'Posee una Reinterpretación positiva de la experiencia bajo';
@@ -376,7 +346,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'RPE',
             value: +total,
-            poss: 7,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -391,7 +360,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 7) {
-          const total = res8;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results8).reduce((a, b) => a + b);
           let desc = 'Posee una Aceptación promedio';
           if (total < 2 ) {
             desc = 'Posee una Aceptación bajo';
@@ -401,7 +371,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'A',
             value: +total,
-            poss: 8,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -416,7 +385,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 8) {
-          const total = res9;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results9).reduce((a, b) => a + b);
           let desc = 'Posee una Retomo a la religión promedio';
           if (total < 2 ) {
             desc = 'Posee una Retomo a la religión bajo';
@@ -426,7 +396,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'RR',
             value: +total,
-            poss: 9,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -441,7 +410,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 9) {
-          const total = res10;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results10).reduce((a, b) => a + b);
           let desc = 'Posee una Análisis de las emociones promedio';
           if (total < 2 ) {
             desc = 'Posee una Análisis de las emociones bajo';
@@ -451,7 +421,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AE',
             value: +total,
-            poss: 10,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -466,7 +435,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 10) {
-          const total = res11;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results11).reduce((a, b) => a + b);
           let desc = 'Posee una Negación promedio';
           if (total < 2 ) {
             desc = 'Posee una Negación bajo';
@@ -476,7 +446,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'N',
             value: +total,
-            poss: 11,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -491,7 +460,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 11) {
-          const total = res12;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results12).reduce((a, b) => a + b);
           let desc = 'Posee una Conductas inadecuadas promedio';
           if (total < 2 ) {
             desc = 'Posee una Conductas inadecuadas bajo';
@@ -501,7 +471,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'CI',
             value: +total,
-            poss: 12,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -516,7 +485,8 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 12) {
-          const total = res13;
+          const valId = Math.floor(Math.random() * 999999);
+          const total = Object.values(results13).reduce((a, b) => a + b);
           let desc = 'Posee una Distracción promedio';
           if (total < 2 ) {
             desc = 'Posee una Distracción bajo';
@@ -526,7 +496,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'D',
             value: +total,
-            poss: 13,
             descripcion: desc
           };
           console.log (valuableRequest);
@@ -575,7 +544,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                         <strong className='title grey-text text-darken-3'>{pregunta.posicion})  {pregunta.pregunta}</strong>
                       </div>
                       <div className='col s12 m4 l3'>
-                        <RadioInput object={editableAlter} error={error} name={pregunta.tipo.name} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
+                        <RadioInput object={editableAlter} error={error} name={pregunta.tipos} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
                       </div>
                       <br/>
                     </div>

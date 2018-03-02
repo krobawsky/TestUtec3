@@ -15,7 +15,7 @@ import { RadioGroup, RadioButton, ReversedRadioButton } from '../../../node_modu
 export default ({object, error, name, question, options, onChange}: { object: any, error: IError, name: string, question: string, options: IRadioOption[], onChange: IInputChangeHandler2 }) => {
 
   const handleOnChange = value => {
-    console.log('Value:', +value);
+    // console.log('Value:', +value);
     onChange(name, question, value, null);
   };
 
@@ -30,7 +30,7 @@ export default ({object, error, name, question, options, onChange}: { object: an
       <div className='input-field col s12'>
         <RadioGroup onChange={handleOnChange} horizontal >
           { options.length > 0 ? options.map(alter => (
-            <ReversedRadioButton key={alter.id} value={alter.value.toString()}>
+            <ReversedRadioButton key={alter.id} value={alter.value}>
               {alter.alternativa}
             </ReversedRadioButton>
           )) : 'none' }

@@ -67,7 +67,6 @@ interface IResultadoRequest {
 interface IValoresRequest {
   tipo?: string;
   value?: number;
-  poss?: number;
   descripcion?: string;
 }
 
@@ -111,7 +110,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  onInputChange(name: any, pos: number, question: string, value: number) {
+  onInputChange(name: any, pos: number, question: string, value: string) {
     const { editableAlter, resultsTotal, resultsA1, resultsA2, resultsA3, resultsA4, resultsA5, resultsB1, resultsB2, resultsB3, resultsBM, resultsC1, resultsC2, resultsC3, resultsD1, resultsD2, resultsE1, resultsE2, resultsV1, resultsV2, resultsG } = this.state;
     // console.log( value );
      for (const propiedad in name) {
@@ -581,7 +580,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'IA',
             value: +total,
-            poss: 1,
             descripcion: desc
           };
           // Post
@@ -600,7 +598,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'CM',
             value: +total,
-            poss: 2,
             descripcion: desc
           };
           // Post
@@ -619,7 +616,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AS',
             value: +total,
-            poss: 3,
             descripcion: desc
           };
           // Post
@@ -638,7 +634,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AC',
             value: +total,
-            poss: 4,
             descripcion: desc
           };
           // Post
@@ -657,7 +652,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AR',
             value: +total,
-            poss: 5,
             descripcion: desc
           };
           // Post
@@ -676,7 +670,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'IN',
             value: +total,
-            poss: 6,
             descripcion: desc
           };
           // Post
@@ -695,7 +688,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'IE',
             value: +total,
-            poss: 7,
             descripcion: desc
           };
           // Post
@@ -714,7 +706,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'EM',
             value: +total,
-            poss: 8,
             descripcion: desc
           };
           // Post
@@ -733,7 +724,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'RI',
             value: +total,
-            poss: 9,
             descripcion: desc
           };
           // Post
@@ -752,7 +742,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'RS',
             value: +total,
-            poss: 10,
             descripcion: desc
           };
           // Post
@@ -771,7 +760,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'AD',
             value: +total,
-            poss: 11,
             descripcion: desc
           };
           // Post
@@ -790,7 +778,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'SP',
             value: +total,
-            poss: 12,
             descripcion: desc
           };
           // Post
@@ -809,7 +796,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'PR',
             value: +total,
-            poss: 13,
             descripcion: desc
           };
           // Post
@@ -828,7 +814,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'FL',
             value: +total,
-            poss: 14,
             descripcion: desc
           };
           // Post
@@ -847,7 +832,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'MT',
             value: +total,
-            poss: 15,
             descripcion: desc
           };
           // Post
@@ -866,7 +850,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'ME',
             value: +total,
-            poss: 16,
             descripcion: desc
           };
           // Post
@@ -885,7 +868,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'CI',
             value: +total,
-            poss: 17,
             descripcion: desc
           };
           // Post
@@ -904,7 +886,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'EA',
             value: +total,
-            poss: 18,
             descripcion: desc
           };
           // Post
@@ -923,7 +904,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'FE',
             value: +total,
-            poss: 19,
             descripcion: desc
           };
           // Post
@@ -942,7 +922,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'OP',
             value: +total,
-            poss: 20,
             descripcion: desc
           };
           // Post
@@ -961,7 +940,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           const valuableRequest: IValoresRequest = {
             tipo: 'G',
             value: +total,
-            poss: 21,
             descripcion: desc
           };
           // Post
@@ -969,9 +947,6 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           submitForm('POST', url, valuableRequest, (status, response) => {
             if (status === 204) {
               console.log('res: ', response);
-              this.context.router.push({
-                pathname: '/'
-              });
             } else {
               console.log('Error?!...', response);
             }
@@ -1010,7 +985,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
                       <div className='col s12'>
                         <strong className='title grey-text text-darken-3'>{pregunta.posicion})  {pregunta.pregunta}</strong>
                       </div>
-                      <div className='col s12 m6 offset-m3'>
+                      <div className='col s12 m10 offset-m1'>
                         <br/>
                         <div className='center-align'>
                           <RadioInput3 object={editableAlter} error={error} name={pregunta.tipos} pos={pregunta.posicion} question={pregunta.pregunta} options={pregunta.alternativas.sort((a, b) => Number(a.id) - Number(b.id))} onChange={this.onInputChange} />
