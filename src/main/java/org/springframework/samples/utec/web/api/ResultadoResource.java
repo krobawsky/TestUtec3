@@ -137,6 +137,7 @@ public class ResultadoResource extends AbstractResourceController{
         
 		value.setTipo(valRequest.getTipo());
         value.setValue(valRequest.getValue());
+        value.setPoss(valRequest.getPoss());
         value.setDescripcion(valRequest.getDescripcion());
 
         clinicService.saveValor(value);

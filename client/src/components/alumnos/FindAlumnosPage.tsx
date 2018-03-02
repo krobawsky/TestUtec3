@@ -14,6 +14,7 @@ interface IFindAlumnosPageProps {
 interface IFindAlumnosPageState {
   alumnos?: IAlumno[];
   filter?: string;
+  mensaje?: string;
 }
 
 const getFilterFromLocation = (location) => {
@@ -33,7 +34,8 @@ export default class FindAlumnosPage extends React.Component<IFindAlumnosPagePro
     this.submitSearchForm = this.submitSearchForm.bind(this);
 
     this.state = {
-      filter: getFilterFromLocation(props.location)
+      filter: getFilterFromLocation(props.location),
+      mensaje: 'transparent-text'
     };
   }
 
@@ -67,11 +69,16 @@ export default class FindAlumnosPage extends React.Component<IFindAlumnosPagePro
 
   submitSearchForm() {
     const { filter } = this.state;
-
-    this.context.router.push({
-      pathname: '/alumnos/list',
-      query: { 'lastName': filter || '' }
-    });
+    // console.log(filter);
+    if ( filter === '' || filter === undefined) {
+      this.alerta();
+    } else {
+      this.dalerta();
+      this.context.router.push({
+        pathname: '/alumnos/list',
+        query: { 'lastName': filter || '' }
+      });
+    }
   }
 
   /** 
@@ -95,7 +102,17 @@ export default class FindAlumnosPage extends React.Component<IFindAlumnosPagePro
 
     const btn = document.getElementById('btn-enviar');
     btn.removeAttribute('style');
+  }
 
+  alerta  = () => {
+    this.setState ({
+      mensaje: 'red-text'
+    });
+  }
+  dalerta  = () => {
+    this.setState ({
+      mensaje: 'transparent-text'
+    });
   }
 
   render() {
@@ -136,6 +153,7 @@ export default class FindAlumnosPage extends React.Component<IFindAlumnosPagePro
                 <label className='col-sm-2 control-label'>Buscar por Apellido </label>
                 <div className='input-field inline'>
                   <input  name='filter' value={filter || ''} onChange={this.onFilterChange} size={30} maxLength={80} />
+                  <b className={this.state.mensaje} >Ingrese un apellido</b>
                 </div>
                  <a onClick={this.submitSearchForm} className='btn-floating btn-small waves-effect waves-light blue'><i className='material-icons'>search</i></a>
                   <div className='fixed-action-btn horizontal right' style={{position: 'relative', display: 'inline-block', right: '24px', marginTop: '30px'}}>
