@@ -134,6 +134,14 @@ export default class ResultPage extends React.Component<IResultadoPageProps, IRe
                 </div>
                 <div className='col s12'>
                   <div className='card-panel grey white-text' style={{marginLeft: '30px', marginRight: '30px'}}>
+                    <h6>Indicador</h6>
+                    <div className='divider'></div>
+                    <blockquote><b>0 - 2: </b> Estrategia poco utilizada</blockquote>
+                    <blockquote><b>2 - 4: </b> Estrategia utilizada con frecuencia.</blockquote>
+                  </div>
+                </div>
+                <div className='col s12'>
+                  <div className='card-panel grey white-text' style={{marginLeft: '30px', marginRight: '30px'}}>
                     <h6>Areas</h6>
                     <div className='divider'></div>
                     <blockquote><b>Afrontamiento directo:</b> Realización de una acción directa y racional para solucionar el problema.</blockquote>
@@ -172,6 +180,16 @@ export default class ResultPage extends React.Component<IResultadoPageProps, IRe
                   {tipos2.map(un => (<h6 className='white-text'>{un.ab} : {un.tipo} </h6>))}
                 </div>
               </div>
+              <div className='col s8'>
+                <div className='card-panel grey white-text' style={{marginLeft: '30px', marginRight: '30px'}}>
+                    <h6>Indicador</h6>
+                    <div className='divider'></div>
+                    <blockquote><b>0 – 59: </b> Indicador bajo</blockquote>
+                    <blockquote><b>60 – 74: </b> Indicador sugestivo</blockquote>
+                    <blockquote><b>75 – 84: </b> Indicador moderado</blockquote>
+                    <blockquote><b> >85: </b> Indicador alto</blockquote>
+                </div>
+              </div>
             </div>
           </div>
           ) : (
@@ -194,6 +212,16 @@ export default class ResultPage extends React.Component<IResultadoPageProps, IRe
               <div className='col s4'>
                 <div className='card-panel grey' style={{marginLeft: '30px', padding: '5px'}}>
                   {tipos3.map(un => (<h6 className='white-text'>{un.ab} : {un.tipo} </h6>))}
+                </div>
+              </div>
+              <div className='col s8'>
+                <div className='card-panel grey white-text' style={{marginLeft: '30px', marginRight: '30px'}}>
+                    <h6>Indicador</h6>
+                    <div className='divider'></div>
+                    <blockquote><b>0 – 89: </b> Capacidad emocional poco desarrollada</blockquote>
+                    <blockquote><b>90 – 109: </b> Capacidad emocional adecuada</blockquote>
+                    <blockquote><b>110 – 119: </b> Capacidad emocional altamente desarrollada</blockquote>
+                    <blockquote><b> 120 a +: </b> Capacidad emocional inusualmente desarrollada</blockquote>
                 </div>
               </div>
             </div>
